@@ -11,7 +11,7 @@ class MyWidget(QMainWindow):
         super().__init__()
         uic.loadUi('UI.ui', self)  # Загружаем дизайн
         self.do_paint = False
-        self.btn.clicked.connect(self.paint)
+        self.btn.clicked.connect(self.draw_circle)
 
     def paintEvent(self, event):
         # Создаем объект QPainter для рисования
@@ -27,7 +27,7 @@ class MyWidget(QMainWindow):
         self.do_paint = True
         self.repaint()
 
-    def draw(self, qp):
+    def draw_circle(self, qp):
         # Задаем кисть
         qp.setBrush(QColor(255, 255, 0))
         qp.setPen(QColor(255, 255, 0))
